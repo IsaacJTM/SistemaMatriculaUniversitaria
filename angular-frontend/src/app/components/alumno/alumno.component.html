@@ -1,0 +1,12 @@
+<div class="container">
+    <button (click)="login()">LOGIN</button>
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="formulario_container">
+        <input type="text" formControlName="codigo" placeholder="codigo">
+        <input type="text" formControlName="nombre" placeholder="Nombre">
+        <small *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched"> Nombre invalido</small>
+        <input type="number" formControlName="edad">
+        <input type="email" formControlName="email" placeholder="email">
+        <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Email invalido</small>
+        <button type="submit" [disabled]="!form.valid">Guardar</button>
+    </form>
+</div>
